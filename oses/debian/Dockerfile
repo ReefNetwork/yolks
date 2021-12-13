@@ -15,7 +15,7 @@ ENV          USER=container HOME=/home/container
 
 ## Update base packages
 RUN          apt update \
-             && apt upgrade -y
+             && apt upgrade -y && apt clean -y
 
 ## Install dependencies
 RUN          apt install -y gcc g++ libgcc1 lib32gcc-s1 libc++-dev gdb libc6 git wget curl tar zip unzip binutils xz-utils liblzo2-2 cabextract iproute2 net-tools netcat telnet libatomic1 libsdl1.2debian libsdl2-2.0-0 \
@@ -25,7 +25,7 @@ RUN          apt install -y gcc g++ libgcc1 lib32gcc-s1 libc++-dev gdb libc6 git
 ## Configure locale
 RUN          update-locale lang=en_US.UTF-8 \
              && dpkg-reconfigure --frontend noninteractive locales
-			 
+
 
 WORKDIR     /home/container
 

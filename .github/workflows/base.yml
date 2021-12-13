@@ -17,6 +17,7 @@ jobs:
       matrix:
         oses:
           - alpine
+          - debian
           - ubuntu
     steps:
       - uses: actions/checkout@v2
